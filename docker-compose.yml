@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  react:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    container_name: pairpro
+    image: node:12
+    restart: always
+    volumes:
+      - ./code:/var/www/react
+    ports:
+      - "3000:3000"
+    tty: true
+    expose:
+      - "3000"
+      - "8000"
+      - "80"

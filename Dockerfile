@@ -1,0 +1,9 @@
+FROM node:12
+
+ENV WORKSPACE_DIR /var/www/react/
+WORKDIR ${WORKSPACE_DIR}
+
+EXPOSE 3000
+EXPOSE 8000
+
+CMD ["/bin/bash"]
