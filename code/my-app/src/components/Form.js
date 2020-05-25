@@ -2,10 +2,12 @@ import React, { Component } from "react";
 
 class Form extends Component {
     render(){
+        const item1 = {"display": "flex", "align-items": "center", "width": "300px", "justify-content": "space-around"}
+        const item2 = {"display": "flex", "align-items": "center", "width": "300px", "justify-content": "space-around"}
         return(
-            <div>
+            <div className="tamaki">
                 <div>
-                    <form onSubmit={this.props.onhandleClick}>
+                    <form style={item1} onSubmit={this.props.onhandleClick}>
                         <div>
                             <input
                                 name="text" className=""
@@ -21,7 +23,7 @@ class Form extends Component {
                     </form>
                 </div>
                 <div>
-                    <form onSubmit={this.props.onhandleClick2}>
+                    <form style={item2} onSubmit={this.props.onhandleClick2}>
                         <div>
                             <input name="text"
                             id="text2"

@@ -7,7 +7,9 @@ class App extends Component {
     super(props);
     this.state = {
       text: "",
-      text2: ""
+      text2: "",
+      view_text: "",
+      view_text2: "",
     };
     this.onhandleClick = this.onhandleClick.bind(this)
     this.onhandleChange = this.onhandleChange.bind(this)
@@ -31,22 +33,40 @@ class App extends Component {
   }
 
   onhandleClick(event) {
-      event.preventDefault();
-      console.log(this.state.text)
+    event.preventDefault();
+    this.setState({
+      view_text: this.state.text
+    })
   }
 
   onhandleClick2(e) {
     e.preventDefault();
-    console.log(this.state.text2)
+    this.setState({
+      view_text2: this.state.text2
+    })
   }
 
   render(){
+    const content = {"display": "flex"}
     return (
-        <Form
-          text={this.state.text}
-          onhandleClick={this.onhandleClick}
-          onhandleChange={this.onhandleChange}
-        />
+      <div>
+          <Form
+            text={this.state.text}
+            text2={this.state.text2}
+            onhandleClick={this.onhandleClick}
+            onhandleClick2={this.onhandleClick2}
+            onhandleChange={this.onhandleChange}
+            onhandleChange2={this.onhandleChange2}
+          />
+          <div>
+            <div style={content}>
+              {this.state.view_text}
+            </div>
+            <div style={content}>
+              {this.state.view_text2}
+            </div>
+          </div>
+      </div>
     );
   }
 }
